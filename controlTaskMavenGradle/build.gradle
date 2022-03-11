@@ -48,6 +48,7 @@ jar {
     from configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }
 }
 
+/*
 task filePng{
     URL url = null;
     try {
@@ -61,4 +62,28 @@ task filePng{
     } catch (IOException e) {
         println("File Already Exists")
     }
+}*/
+
+class CustomTask extends DefaultTask {
+
+    @Input
+    String sourceUrl
+
+    @OutputFile
+    File target
+
+    @TaskAction
+    void download() {
+        try {
+            ant.get(src: sourceUrl, dest: target)
+        }
+        catch (Exception e) {
+            println(e)
+        }
+    }
+
+}
+task downloadcheckimage(type: CustomTask){
+    sourceUrl = 'https://github.com/yury-1980/hello-world/raw/main/file.png'
+    target = new File('src/main/resources/file.png')
 }
