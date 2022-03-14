@@ -25,8 +25,6 @@ public class Reader {
         String str;
 
         String path = new File("").getAbsolutePath();
-        System.out.println(path);
-        System.out.println(path + "/src/main/resources/products.txt");
 
         try (FileReader reader = new FileReader(path
                 + "/src/main/resources/products.txt");

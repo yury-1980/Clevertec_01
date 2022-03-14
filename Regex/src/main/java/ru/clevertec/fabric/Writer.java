@@ -38,7 +38,7 @@ public class Writer {
         FileWriter writeToFile = null;
 
         try {
-            writeToFile = new FileWriter(path + "/salesReceipt.txt", false);
+            writeToFile = new FileWriter(path + "/src/main/resources/salesReceipt.txt", false);
         } catch (IOException e) {
             System.out.println("File not written!!!");
         }
@@ -59,7 +59,8 @@ public class Writer {
 
         print.close();
         System.out.println();
-        System.out.println("the file is located: " + path);
+        System.out.println("the file is located: " + path
+                + "/src/main/resources/salesReceipt.txt");
     }
 
     public static void checkWritingConsol() {
